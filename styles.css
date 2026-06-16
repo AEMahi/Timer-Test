@@ -1,0 +1,249 @@
+:root {
+  --primary-color: #4f46e5;
+  --primary-hover: #4338ca;
+  --secondary-color: #64748b;
+  --background-color: #f8fafc;
+  --card-color: #ffffff;
+  --text-color: #1e293b;
+  --text-light: #64748b;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0fdf4 100%);
+  color: var(--text-color);
+  padding: 1rem;
+}
+
+.timer-container {
+  background: var(--card-color);
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.timer-header {
+  margin-bottom: 2rem;
+}
+
+.timer-header h1 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.timer-modes {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mode-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--background-color);
+  color: var(--text-light);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.mode-btn:hover {
+  background: #e2e8f0;
+}
+
+.mode-btn.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.timer-display {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.control-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.control-btn:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.control-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+#pauseBtn {
+  background: var(--warning-color);
+}
+
+#pauseBtn:hover:not(:disabled) {
+  background: #d97706;
+}
+
+#resetBtn {
+  background: var(--danger-color);
+}
+
+#resetBtn:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.timer-settings {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.settings-section {
+  margin-bottom: 1.5rem;
+  display: none;
+}
+
+.settings-section.active {
+  display: block;
+}
+
+.settings-section h3 {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-group input {
+  width: 3rem;
+  padding: 0.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.input-group span {
+  font-size: 1.2rem;
+  color: var(--text-light);
+}
+
+#pomodoro-settings .input-group {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+#pomodoro-settings label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+#pomodoro-settings input {
+  width: 4rem;
+}
+
+.timer-laps {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.timer-laps h3 {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.laps-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.lap-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lap-item:last-child {
+  border-bottom: none;
+}
+
+.lap-number {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.lap-time {
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .timer-display {
+    font-size: 3rem;
+  }
+
+  .timer-container {
+    padding: 1.5rem;
+  }
+
+  .timer-modes {
+    flex-wrap: wrap;
+  }
+
+  .mode-btn {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
